@@ -163,7 +163,7 @@ function renderTable() {
       <td><strong>${item.id}</strong></td>
       <td><span style="color: #94a3b8; font-size: 13px;">${item.category}</span></td>
       <td style="max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${escapeHtml(item.prompt)}</td>
-      <td><span style="font-family: monospace; font-size: 12px; color: #38bdf8;">${item.engine}</span></td>
+      <td><span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary);">${item.engine}</span></td>
       <td>${statusChip}</td>
       <td><strong>${item.score.toFixed(2)}</strong></td>
       <td><button class="filter-pill" style="padding: 4px 10px; font-size: 11px;" onclick="openModal('${item.id}')">Inspect</button></td>
@@ -184,6 +184,7 @@ function filterByStatus(status, btn) {
   renderTable();
 }
 
+
 // Modal inspection
 function openModal(id) {
   const item = TEST_CASES_DATA.find(c => c.id === id);
@@ -193,16 +194,16 @@ function openModal(id) {
   document.getElementById('modalBody').innerHTML = `
     <div style="margin-bottom: 14px;">
       <span class="status-chip ${item.passed ? 'status-pass' : 'status-fail'}">${item.passed ? 'PASSED' : 'FAILED'}</span>
-      <span style="margin-left: 10px; color: #94a3b8; font-size: 13px;">Score: <strong>${item.score.toFixed(2)}</strong></span>
+      <span style="margin-left: 10px; color: var(--text-secondary); font-size: 13px;">Score: <strong>${item.score.toFixed(2)}</strong></span>
     </div>
-    <div style="font-size: 12px; text-transform: uppercase; color: #6366f1; font-weight: 700; margin-bottom: 4px;">User Prompt</div>
-    <div style="background: #090c12; padding: 12px; border-radius: 6px; font-size: 13px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.06);">${escapeHtml(item.prompt)}</div>
+    <div style="font-size: 12px; text-transform: uppercase; color: var(--accent-primary); font-weight: 700; margin-bottom: 4px;">User Prompt</div>
+    <div style="background: var(--bg-input); padding: 12px; border-radius: 6px; font-size: 13px; margin-bottom: 12px; border: 1px solid var(--border-subtle); color: var(--text-primary);">${escapeHtml(item.prompt)}</div>
 
-    <div style="font-size: 12px; text-transform: uppercase; color: #10b981; font-weight: 700; margin-bottom: 4px;">Actual LLM Response</div>
-    <div style="background: #090c12; padding: 12px; border-radius: 6px; font-size: 13px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.06);">${escapeHtml(item.actual_output)}</div>
+    <div style="font-size: 12px; text-transform: uppercase; color: var(--color-success); font-weight: 700; margin-bottom: 4px;">Actual LLM Response</div>
+    <div style="background: var(--bg-input); padding: 12px; border-radius: 6px; font-size: 13px; margin-bottom: 12px; border: 1px solid var(--border-subtle); color: var(--text-primary);">${escapeHtml(item.actual_output)}</div>
 
-    <div style="font-size: 12px; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin-bottom: 4px;">Evaluation Details & Reasoning</div>
-    <div style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 6px; font-size: 12px; color: #cbd5e1;">${escapeHtml(item.details)}</div>
+    <div style="font-size: 12px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-bottom: 4px;">Evaluation Details & Reasoning</div>
+    <div style="background: var(--bg-surface-elevated); padding: 10px; border-radius: 6px; font-size: 12px; color: var(--text-secondary); border: 1px solid var(--border-subtle);">${escapeHtml(item.details)}</div>
   `;
 
   document.getElementById('detailModal').classList.add('open');

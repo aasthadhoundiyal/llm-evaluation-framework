@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../dashboard/styles.css">
+  <link rel="stylesheet" href="../dashboard/styles.css?v=20261020_enterprise">
   <style>
     .docs-container {
       max-width: 960px;
@@ -26,36 +26,36 @@
       font-size: 18px;
       margin-top: 24px;
       margin-bottom: 8px;
-      color: #c7d2fe;
+      color: #e4e4e7;
     }
     .docs-container p {
-      color: #94a3b8;
+      color: var(--text-secondary);
       margin-bottom: 16px;
     }
     .docs-container ul {
       margin-left: 24px;
       margin-bottom: 16px;
-      color: #94a3b8;
+      color: var(--text-secondary);
     }
     .docs-container li {
       margin-bottom: 6px;
     }
     .code-block {
-      background: #090c12;
+      background: var(--bg-input);
       border: 1px solid var(--border-subtle);
       padding: 16px;
-      border-radius: 8px;
-      font-family: 'JetBrains Mono', monospace;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
       font-size: 13px;
-      color: #38bdf8;
+      color: #e4e4e7;
       margin-bottom: 20px;
       overflow-x: auto;
     }
     .callout-box {
-      background: rgba(99, 102, 241, 0.08);
-      border-left: 4px solid var(--accent-primary);
+      background: var(--bg-surface-elevated);
+      border-left: 3px solid var(--accent-primary);
       padding: 16px 20px;
-      border-radius: 0 8px 8px 0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       margin-bottom: 20px;
     }
   </style>
@@ -63,7 +63,7 @@
 <body>
   <header class="app-header">
     <div class="header-branding">
-      <div class="brand-logo-icon">📖</div>
+      <div class="brand-logo-icon">◈</div>
       <div>
         <h1 class="brand-title">LLM Evaluation Framework Docs</h1>
         <p class="brand-sub">Comprehensive Guide & Testing Reference by Aastha Dhoundiyal</p>

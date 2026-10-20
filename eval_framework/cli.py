@@ -129,13 +129,22 @@ def run_all_phases(provider: str, model: str, results_dir: str):
     print(c("1;32", "=" * 70 + "\n"))
 
 
+class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
+    """Disable aggressive browser caching for local dashboard development."""
+    def end_headers(self):
+        self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
+        super().end_headers()
+
+
 def serve_dashboard(port: int = 8080):
     print_banner()
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     os.chdir(repo_root)
 
-    handler = http.server.SimpleHTTPRequestHandler
-    with socketserver.TCPServer(("", port), handler) as httpd:
+    socketserver.TCPServer.allow_reuse_address = True
+    with socketserver.TCPServer(("", port), NoCacheHandler) as httpd:
         url = f"http://localhost:{port}/dashboard/index.html"
         print(c("1;32", f"Serving Dashboard at: {url}"))
         print(c("33", "Press Ctrl+C to stop the server."))

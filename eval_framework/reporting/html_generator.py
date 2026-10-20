@@ -52,13 +52,13 @@ class HTMLReportGenerator:
   <title>{self.title} — Aastha Dhoundiyal</title>
   <style>
     :root {{
-      --bg-base: #090d16;
-      --bg-card: #111726;
-      --border-color: #1e293b;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent: #2563eb;
-      --pass-color: #10b981;
+      --bg-base: #09090b;
+      --bg-card: #121215;
+      --border-color: #242429;
+      --text-main: #ffffff;
+      --text-muted: #a1a1aa;
+      --accent: #ffffff;
+      --pass-color: #22c55e;
       --fail-color: #ef4444;
       --card-radius: 8px;
     }}
@@ -92,11 +92,11 @@ class HTMLReportGenerator:
       align-items: center;
       gap: 8px;
       padding: 6px 14px;
-      background: rgba(99, 102, 241, 0.15);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      border-radius: 20px;
+      background: #1a1a1e;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
       font-size: 13px;
-      color: #c7d2fe;
+      color: #e4e4e7;
     }}
     /* Scorecards Grid */
     .metrics-grid {{
@@ -110,12 +110,10 @@ class HTMLReportGenerator:
       border: 1px solid var(--border-color);
       border-radius: var(--card-radius);
       padding: 20px;
-      backdrop-filter: blur(12px);
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: border-color 0.2s ease;
     }}
     .metric-card:hover {{
-      transform: translateY(-2px);
-      border-color: rgba(99, 102, 241, 0.4);
+      border-color: #383842;
     }}
     .metric-label {{
       font-size: 13px;
