@@ -52,16 +52,15 @@ class HTMLReportGenerator:
   <title>{self.title} — Aastha Dhoundiyal</title>
   <style>
     :root {{
-      --bg-base: #0a0d14;
-      --bg-card: rgba(22, 27, 34, 0.75);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --text-main: #f0f6fc;
-      --text-muted: #8b949e;
-      --accent: #6366f1;
-      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+      --bg-base: #090d16;
+      --bg-card: #111726;
+      --border-color: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #2563eb;
       --pass-color: #10b981;
       --fail-color: #ef4444;
-      --card-radius: 14px;
+      --card-radius: 8px;
     }}
     * {{ box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif; }}
     body {{
@@ -81,9 +80,7 @@ class HTMLReportGenerator:
     .header-title h1 {{
       font-size: 26px;
       font-weight: 700;
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #ffffff;
     }}
     .header-title p {{
       color: var(--text-muted);
