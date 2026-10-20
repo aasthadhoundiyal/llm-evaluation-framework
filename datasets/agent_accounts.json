@@ -1,0 +1,31 @@
+{
+  "accounts": [
+    {
+      "account_id": "ACC-77491",
+      "customer_name": "Sarah Connor",
+      "status": "active",
+      "security_tier": "verified_mfa",
+      "checking_balance": 4250.75,
+      "savings_balance": 18200.00,
+      "credit_limit": 10000.00,
+      "recent_transactions": [
+        { "id": "TX-1001", "date": "2026-08-28", "description": "Whole Foods Market", "amount": -142.30, "type": "debit" },
+        { "id": "TX-1002", "date": "2026-08-29", "description": "Payroll Direct Deposit", "amount": 3200.00, "type": "credit" },
+        { "id": "TX-1003", "date": "2026-09-01", "description": "Shell Oil Gas Station", "amount": -48.50, "type": "debit" }
+      ]
+    },
+    {
+      "account_id": "ACC-88210",
+      "customer_name": "Marcus Wright",
+      "status": "fraud_review",
+      "security_tier": "flagged_suspicious",
+      "checking_balance": 820.10,
+      "savings_balance": 150.00,
+      "credit_limit": 2500.00,
+      "recent_transactions": [
+        { "id": "TX-2001", "date": "2026-09-03", "description": "Crypto Exchange Buy #99", "amount": -8000.00, "type": "debit_declined" },
+        { "id": "TX-2002", "date": "2026-09-03", "description": "Overseas POS Sofia BG", "amount": -450.00, "type": "debit_flagged" }
+      ]
+    }
+  ]
+}

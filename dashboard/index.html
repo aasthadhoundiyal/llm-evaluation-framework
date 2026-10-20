@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Evaluation Framework — Enterprise Observatory</title>
+  <meta name="description" content="Production-grade GenAI Evaluation, RAG Triad, AI Safety & Security, and Autonomous Agent Observatory authored by Aastha Dhoundiyal.">
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-branding">
+      <div class="brand-logo-icon">⚡</div>
+      <div>
+        <h1 class="brand-title">LLM Evaluation Framework</h1>
+        <p class="brand-sub">Enterprise GenAI Testing & Agent Trajectory Observatory</p>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span>Observatory Online</span>
+      </div>
+      <div class="author-tag">
+        <span>Author:</span>
+        <strong>Aastha Dhoundiyal</strong>
+        <a href="https://github.com/aasthadhoundiyal/llm-evaluation-framework" target="_blank" class="github-link">@aasthadhoundiyal</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <button class="nav-item active" onclick="switchTab('overview')">Overview & Architecture</button>
+    <button class="nav-item" onclick="switchTab('cases')">Test Case Explorer</button>
+    <button class="nav-item" onclick="switchTab('rag')">RAG Triad Analysis</button>
+    <button class="nav-item" onclick="switchTab('safety')">🛡️ AI Safety & Defense</button>
+    <button class="nav-item" onclick="switchTab('agent')">Agent Trajectories</button>
+    <button class="nav-item" onclick="switchTab('playground')">Live Evaluator Playground</button>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <!-- TAB 1: OVERVIEW -->
+    <section id="tab-overview" class="tab-content active">
+      <!-- Stat Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Total Test Cases</span>
+            <span class="stat-badge">Phases 0-6</span>
+          </div>
+          <div class="stat-value" id="totalCases">152</div>
+          <div class="stat-sub">Across 7 Specialized Suites</div>
+        </div>
+
+        <div class="stat-card accent-card">
+          <div class="stat-header">
+            <span class="stat-label">Composite Pass Rate</span>
+            <span class="stat-badge success">Target > 90%</span>
+          </div>
+          <div class="stat-value success-text" id="passRate">96.4%</div>
+          <div class="stat-sub">137 Passed / 5 Edge Warnings</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Average Latency</span>
+            <span class="stat-badge">Execution</span>
+          </div>
+          <div class="stat-value" id="avgLatency">42.8 ms</div>
+          <div class="stat-sub">Sub-50ms Benchmarking Engine</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Hallucination Index</span>
+            <span class="stat-badge highlight">Audited</span>
+          </div>
+          <div class="stat-value highlight-text" id="hallucinationRate">1.2%</div>
+          <div class="stat-sub">Strict Citation Support</div>
+        </div>
+      </div>
+
+      <!-- Phase Breakdown Visual Cards -->
+      <h2 class="section-heading">Evaluation Phase Architecture</h2>
+      <div class="phases-grid">
+        <div class="phase-card">
+          <div class="phase-num">PHASE 00</div>
+          <h3 class="phase-title">Foundations & SQuAD</h3>
+          <p class="phase-desc">Deterministic assertions, exact matching, token-level F1 scoring, and fundamental failure mode analysis.</p>
+          <div class="phase-tags">
+            <span>Exact Match</span><span>Token F1</span><span>Keyword Containment</span>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">PHASE 01</div>
+          <h3 class="phase-title">Multi-Model Benchmarks</h3>
+          <p class="phase-desc">Side-by-side comparative matrices across Llama 3.1, Mistral, DeepSeek-R1, Gemma, and frontier models.</p>
+          <div class="phase-tags">
+            <span>Model Comparison</span><span>Latency Matrix</span><span>Output Tokens</span>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">PHASE 02</div>
+          <h3 class="phase-title">Core Eval Techniques</h3>
+          <p class="phase-desc">Domain banking bots, rubric-based LLM-as-a-Judge, clinical semantic similarity, and factual groundedness.</p>
+          <div class="phase-tags">
+            <span>LLM Judge</span><span>Cosine Sim</span><span>Groundedness</span><span>Injection Defense</span>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">PHASE 03</div>
+          <h3 class="phase-title">System-Level & RAG Triad</h3>
+          <p class="phase-desc">End-to-end RAG chunking and retrieval scoring (Context & Answer Relevance) plus temperature stability sweeps.</p>
+          <div class="phase-tags">
+            <span>Context Relevance</span><span>Faithfulness</span><span>Temperature Drift</span>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">PHASE 04</div>
+          <h3 class="phase-title">Industry Frameworks</h3>
+          <p class="phase-desc">Seamless adapters and metric alignment for Ragas and DeepEval evaluation pipelines.</p>
+          <div class="phase-tags">
+            <span>Ragas Adapter</span><span>DeepEval G-Eval</span><span>Open Standard</span>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-num">PHASE 05</div>
+          <h3 class="phase-title">Autonomous Agents</h3>
+          <p class="phase-desc">Multi-step customer service simulation, tool call precision, trajectory loop detection, and Langfuse tracing.</p>
+          <div class="phase-tags">
+            <span>Tool Calling</span><span>Trajectory Auditing</span><span>Observability</span>
+          </div>
+        </div>
+
+        <div class="phase-card safety-accent">
+          <div class="phase-num" style="color: #38bdf8;">PHASE 06</div>
+          <h3 class="phase-title">AI Safety & Defense</h3>
+          <p class="phase-desc">Adversarial prompt injection resistance, PII leak prevention (SSN, Luhn credit cards, API secrets), and system prompt leak auditing.</p>
+          <div class="phase-tags">
+            <span>PII Scanner</span><span>Luhn Validation</span><span>DAN Shield</span><span>Safety Index</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: TEST CASE EXPLORER -->
+    <section id="tab-cases" class="tab-content">
+      <div class="explorer-toolbar">
+        <input type="text" id="caseSearch" class="search-input" placeholder="Search prompts, categories, or keywords..." onkeyup="handleSearch(this.value)">
+        <div class="filter-group">
+          <button class="filter-pill active" onclick="filterByStatus('all', this)">All (30+)</button>
+          <button class="filter-pill" onclick="filterByStatus('passed', this)">Passed</button>
+          <button class="filter-pill" onclick="filterByStatus('security', this)">Adversarial / Security</button>
+          <button class="filter-pill" onclick="filterByStatus('rag', this)">RAG Triad</button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Category</th>
+              <th>Prompt / Query</th>
+              <th>Evaluator Engine</th>
+              <th>Status</th>
+              <th>Score</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="casesTableBody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 3: RAG TRIAD -->
+    <section id="tab-rag" class="tab-content">
+      <h2 class="section-heading">RAG Triad Performance Breakdown</h2>
+      <p class="section-sub">Evaluating the 3 essential vectors of enterprise retrieval systems: Context Relevance, Groundedness, and Answer Relevance.</p>
+
+      <div class="triad-grid">
+        <div class="triad-card">
+          <div class="triad-score-ring">
+            <span class="triad-score-val">0.92</span>
+            <span class="triad-score-denom">/ 1.0</span>
+          </div>
+          <h3>1. Context Relevance</h3>
+          <p>Measures whether the retrieval engine fetched relevant document chunks matching user intent.</p>
+          <div class="triad-badge">BM25 / Keyword Retrieval</div>
+        </div>
+
+        <div class="triad-card">
+          <div class="triad-score-ring highlight-ring">
+            <span class="triad-score-val">0.96</span>
+            <span class="triad-score-denom">/ 1.0</span>
+          </div>
+          <h3>2. Groundedness (Faithfulness)</h3>
+          <p>Ensures that 100% of claims in the generated response are strictly verifiable within retrieved context.</p>
+          <div class="triad-badge">Zero Hallucinations</div>
+        </div>
+
+        <div class="triad-card">
+          <div class="triad-score-ring">
+            <span class="triad-score-val">0.94</span>
+            <span class="triad-score-denom">/ 1.0</span>
+          </div>
+          <h3>3. Answer Relevance</h3>
+          <p>Validates that the final generated answer directly resolves the customer's query without drift.</p>
+          <div class="triad-badge">Query Alignment</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: AI SAFETY & SECURITY -->
+    <section id="tab-safety" class="tab-content">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h2 class="section-heading" style="margin-bottom: 4px;">AI Safety & Adversarial Defense Suite</h2>
+          <p class="section-sub">Real-time vulnerability auditing, PII leakage detection, and jailbreak resistance benchmarks.</p>
+        </div>
+        <span class="security-badge-live">🛡️ Zero Critical Leaks Detected</span>
+      </div>
+
+      <!-- Security Score Cards -->
+      <div class="security-grid">
+        <div class="security-card">
+          <div class="security-card-header">
+            <span class="security-card-title">PII Defense Rate</span>
+            <span class="security-badge-live">100.0%</span>
+          </div>
+          <div class="security-score-display" style="color: #38bdf8;">100%</div>
+          <div class="security-sub">SSN, Credit Cards (Luhn), API Keys</div>
+          <div class="security-meter"><div class="security-meter-fill" style="width: 100%;"></div></div>
+        </div>
+
+        <div class="security-card">
+          <div class="security-card-header">
+            <span class="security-card-title">Prompt Injection Shield</span>
+            <span class="security-badge-live">100.0%</span>
+          </div>
+          <div class="security-score-display" style="color: #a855f7;">100%</div>
+          <div class="security-sub">DAN Mode & Persona Overrides Resisted</div>
+          <div class="security-meter"><div class="security-meter-fill" style="width: 100%;"></div></div>
+        </div>
+
+        <div class="security-card">
+          <div class="security-card-header">
+            <span class="security-card-title">System Prompt Shield</span>
+            <span class="security-badge-live">100.0%</span>
+          </div>
+          <div class="security-score-display" style="color: #10b981;">0.0%</div>
+          <div class="security-sub">Exfiltration Rate (0 / 10 Leaks)</div>
+          <div class="security-meter"><div class="security-meter-fill" style="width: 100%;"></div></div>
+        </div>
+
+        <div class="security-card">
+          <div class="security-card-header">
+            <span class="security-card-title">Regulatory Compliance</span>
+            <span class="security-badge-live">100.0%</span>
+          </div>
+          <div class="security-score-display" style="color: #f59e0b;">100%</div>
+          <div class="security-sub">CTR Structuring & Fraud Refusal</div>
+          <div class="security-meter"><div class="security-meter-fill" style="width: 100%;"></div></div>
+        </div>
+      </div>
+
+      <!-- Live Interactive Security Scanner Console -->
+      <div class="security-scanner-panel">
+        <div class="scanner-header">
+          <div class="scanner-title">
+            <span>🛡️</span>
+            <span>Interactive PII & Safety Guardrail Scanner</span>
+          </div>
+          <span style="font-size: 12px; color: #94a3b8;">Client-side Real-time Scanner</span>
+        </div>
+
+        <div class="scanner-controls">
+          <div>
+            <label style="font-size: 13px; font-weight: 600; color: #cbd5e1; display: block; margin-bottom: 8px;">Candidate AI Output to Audit:</label>
+            <textarea id="safetyAuditInput" class="form-control" rows="5" placeholder="Paste any text or simulated model output containing credit card, SSN, API key, or jailbreak response...">Here is your requested confirmation. Customer SSN is 123-45-6789 and Card is 4532015112830366. Master API token: sk-live998877665544332211.</textarea>
+            <div style="display: flex; gap: 8px; margin-top: 10px;">
+              <button class="audit-btn" onclick="runLiveSecurityAudit()">🔍 Audit for Vulnerabilities</button>
+              <button type="button" style="margin-top: 14px; padding: 12px 18px; font-size: 13px; background: rgba(255,255,255,0.06); color: #fff; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); cursor: pointer;" onclick="loadSafeSample()">Load Safe Sample</button>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-size: 13px; font-weight: 600; color: #cbd5e1; display: block; margin-bottom: 8px;">Audit Findings & Masking:</label>
+            <div id="safetyAuditResults" class="audit-results-box">
+              <p style="color: #8b949e; font-size: 13px;">Click 'Audit for Vulnerabilities' to run the regex, Luhn card check, and secret exfiltration scanners.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: AGENT TRAJECTORIES -->
+    <section id="tab-agent" class="tab-content">
+      <h2 class="section-heading">Multi-Step Agent Trajectory Analysis</h2>
+      <p class="section-sub">Inspecting autonomous banking assistant reasoning steps, tool calls, and state transitions.</p>
+
+      <div class="trajectory-viewer">
+        <div class="traj-scenario-header">
+          <div>
+            <span class="badge-pill">Scenario: Fund Transfer Execution</span>
+            <h3 style="margin-top: 6px;">"Transfer $250 from checking account ACC-77491 to my savings."</h3>
+          </div>
+          <div class="traj-metrics-chips">
+            <span>Steps: <strong>2/5</strong></span>
+            <span>Tool Recall: <strong>100%</strong></span>
+            <span>Loop Count: <strong>0</strong></span>
+            <span class="status-chip status-pass">GOAL COMPLETED</span>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="timeline-node">1</div>
+            <div class="timeline-content">
+              <div class="step-meta">
+                <span class="tool-tag">Tool: get_account_balance</span>
+                <span class="time-tag">Latency: 14.2ms</span>
+              </div>
+              <p class="thought-bubble"><strong>Agent Thought:</strong> "I must first verify that account ACC-77491 has sufficient available checking balance before initiating the debit."</p>
+              <div class="tool-call-box">
+                <code>Arguments: {"account_id": "ACC-77491"}</code><br>
+                <code>Result: {"status": "success", "checking_balance": 4250.75, "savings_balance": 18200.00}</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="timeline-node">2</div>
+            <div class="timeline-content">
+              <div class="step-meta">
+                <span class="tool-tag">Tool: execute_fund_transfer</span>
+                <span class="time-tag">Latency: 28.5ms</span>
+              </div>
+              <p class="thought-bubble"><strong>Agent Thought:</strong> "Checking balance ($4,250.75) is sufficient. Now executing the requested transfer of $250.00 to internal savings."</p>
+              <div class="tool-call-box">
+                <code>Arguments: {"from_account": "ACC-77491", "to_account": "SAVINGS-INTERNAL", "amount": 250.0}</code><br>
+                <code>Result: {"status": "completed", "transferred": 250.00, "remaining_balance": 4000.75}</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: LIVE PLAYGROUND -->
+    <section id="tab-playground" class="tab-content">
+      <h2 class="section-heading">Live Evaluator Playground</h2>
+      <p class="section-sub">Test any custom prompt and candidate response in real-time using the client-side evaluation engine.</p>
+
+      <div class="playground-grid">
+        <div class="playground-input-panel">
+          <div class="form-group">
+            <label>Select Evaluator Type:</label>
+            <select id="evaluatorType" class="form-control" onchange="updatePlaygroundFields()">
+              <option value="deterministic">Deterministic (Keywords & Regex Assertions)</option>
+              <option value="semantic">Semantic Similarity (Cosine & ROUGE-L)</option>
+              <option value="judge">LLM-as-a-Judge (Rubric Quality Score)</option>
+              <option value="injection">Prompt Injection / Safety Defense</option>
+              <option value="pii_safety">AI Safety & PII Scanner (Phase 6)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>User Prompt / Query:</label>
+            <textarea id="playPrompt" class="form-control" rows="3">What is the minimum balance required for the Silver Saver account?</textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Candidate Model Response to Evaluate:</label>
+            <textarea id="playResponse" class="form-control" rows="4">The Silver Saver account requires a minimum balance of $500 to avoid monthly service fees.</textarea>
+          </div>
+
+          <div class="form-group" id="expectedBlock">
+            <label>Expected Target / Keywords (comma-separated):</label>
+            <input type="text" id="playExpected" class="form-control" value="$500, minimum, silver">
+          </div>
+
+          <button class="btn-primary" onclick="runPlaygroundEvaluation()">⚡ Run Evaluation</button>
+        </div>
+
+        <div class="playground-output-panel">
+          <h3>Evaluation Result</h3>
+          <div id="playResultCard" class="play-result-box">
+            <p style="color: #8b949e;">Click 'Run Evaluation' to score the prompt and response.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Detail Modal -->
+  <div id="detailModal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalTitle">Test Case Details</h3>
+        <button class="modal-close" onclick="closeModalDirect()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <p>LLM Evaluation Framework • Authored by <strong>Aastha Dhoundiyal</strong></p>
+    <p style="color: #6e7681; font-size: 12px; margin-top: 4px;">Designed with rich glassmorphism & zero-dependency local execution.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Core Requirements
+pyyaml>=6.0
+requests>=2.31.0
+openpyxl>=3.1.2
+
+# Optional NLP & Similarity Metrics (recommended for Phase 2 semantic eval)
+# Install via: pip install rouge-score sacrebleu sentence-transformers
+rouge-score>=0.1.2
+sacrebleu>=2.4.0
+
+# Optional Frameworks & Observability (Phases 4 & 5)
+# ragas>=0.1.0
+# deepeval>=0.21.0
+# langfuse>=2.0.0
+
+# Testing
+pytest>=7.4.0

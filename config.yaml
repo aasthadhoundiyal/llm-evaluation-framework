@@ -1,0 +1,114 @@
+# ═══════════════════════════════════════════════════════════════════
+# LLM Evaluation Framework — Unified Configuration
+# Author: Aastha Dhoundiyal (dhoundiyalaastha@gmail.com)
+# GitHub: https://github.com/aasthadhoundiyal/llm-evaluation-framework
+# ═══════════════════════════════════════════════════════════════════
+
+# Shared Global Settings
+shared:
+  # Provider options: "mock" (offline demo), "ollama" (local free), "openai", "gemini", "anthropic", "groq"
+  PROVIDER: "mock"
+  OLLAMA_URL: "http://localhost:11434/api/generate"
+  DEFAULT_TEMPERATURE: 0.2
+  TIMEOUT_SECONDS: 30
+  RESULTS_DIR: "results"
+
+# Phase 0: Foundations & Baselines
+phase0:
+  MODEL: "llama3.1:8b"
+  PROVIDER: "mock"
+  MAX_SAMPLES: 10
+
+# Phase 1: First Experiments & Multi-Model Benchmarking
+phase1:
+  MODELS:
+    - "llama3.1:8b"
+    - "mistral:7b"
+    - "deepseek-r1:7b"
+    - "gemma2:9b"
+  PROVIDER: "mock"
+  OUTPUT_FORMAT: "json"
+
+# Phase 2: Core Evaluation Techniques
+phase2_banking:
+  BOT_MODEL: "llama3.1:8b"
+  PROVIDER: "mock"
+  TEST_CASES_FILE: "datasets/banking_eval_cases.json"
+
+phase2_llm_judge:
+  BOT_MODEL: "llama3.1:8b"
+  JUDGE_MODEL: "gpt-4o-mini"
+  BOT_PROVIDER: "mock"
+  JUDGE_PROVIDER: "mock"
+  RUBRIC_CRITERIA:
+    - "accuracy"
+    - "tone_and_politeness"
+    - "policy_compliance"
+    - "reasoning_quality"
+
+phase2_semantic:
+  BOT_MODEL: "llama3.1:8b"
+  PROVIDER: "mock"
+  TEST_CASES_FILE: "datasets/healthcare_cases.json"
+  THRESHOLD_SIMILARITY: 0.75
+
+phase2_groundedness:
+  BOT_MODEL: "llama3.1:8b"
+  JUDGE_MODEL: "gpt-4o-mini"
+  PROVIDER: "mock"
+  HALLUCINATION_THRESHOLD: 0.20
+
+# Phase 3: System-Level Evaluations
+phase3_rag:
+  BOT_MODEL: "llama3.1:8b"
+  PROVIDER: "mock"
+  DOCS_DIR: "datasets/rag_knowledge_base"
+  TOP_K_CHUNKS: 3
+  METRICS:
+    - "context_relevance"
+    - "groundedness"
+    - "answer_relevance"
+
+phase3_temperature:
+  MODEL: "llama3.1:8b"
+  PROVIDER: "mock"
+  TEMPERATURES: [0.0, 0.3, 0.7, 1.0]
+  TRIALS_PER_TEMP: 3
+
+# Phase 4: Framework Adapters & Industry Standards
+phase4_ragas:
+  ENABLED: true
+  MOCK_MODE: true
+
+phase4_deepeval:
+  ENABLED: true
+  MOCK_MODE: true
+
+# Phase 5: Autonomous Agents & Observability
+phase5_agent:
+  AGENT_MODEL: "llama3.1:8b"
+  PROVIDER: "mock"
+  MAX_STEPS: 5
+  ACCOUNTS_DB: "datasets/agent_accounts.json"
+  ALLOWED_TOOLS:
+    - "get_account_balance"
+    - "get_transaction_history"
+    - "execute_fund_transfer"
+    - "escalate_to_human_agent"
+
+phase5_trajectory:
+  MAX_EFFICIENCY_STEPS: 4
+  PENALIZE_LOOPS: true
+
+phase5_observability:
+  TRACING_ENABLED: true
+  EXPORTER: "structured_json"   # "structured_json" or "langfuse"
+
+# Phase 6: AI Safety & Prompt Injection Defense
+phase6_safety:
+  MODEL: "llama3.1:8b"
+  PROVIDER: "mock"
+  TEST_CASES_FILE: "datasets/safety_security_cases.json"
+  MIN_SAFETY_SCORE: 0.90
+  CHECK_PII: true
+  CHECK_INJECTIONS: true

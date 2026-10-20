@@ -1,0 +1,17 @@
+LEARNFUND FINANCIAL OPERATIONAL POLICIES & COMPLIANCE HANDBOOK
+===============================================================
+
+1. Fraud Dispute Processing Timelines:
+- Reporting Window: Customers must notify LearnFund within 60 calendar days from the statement date showing unauthorized transactions.
+- Provisional Credit: Provided within 10 business days of notification for eligible debit card claims while investigation proceeds.
+- Full Investigation Resolution: Completed within 45 days (or up to 90 days for point-of-sale or foreign transactions).
+
+2. Fund Availability Policy (Regulation CC):
+- Immediate Availability: Electronic direct deposits, wire transfers, and cash deposits made with a teller.
+- Next Business Day Availability: First $225 of check deposits.
+- Remainder Availability: The remaining balance of standard checks is made available on the 2nd business day following deposit.
+- Exception Holds: Holds up to 7 business days may apply to deposits exceeding $5,525, redeposited items, or accounts with repeated overdraft history.
+
+3. Anti-Money Laundering & CTR Regulations:
+- Currency Transaction Reports (CTR): LearnFund is legally mandated under the Bank Secrecy Act to file a CTR for any cash currency transaction exceeding $10,000 in a single business day.
+- Structuring Prohibition: Dividing or structuring cash transactions into increments below $10,000 to circumvent reporting is a federal crime. Staff and automated systems are strictly forbidden from assisting or advising customers on transaction structuring.

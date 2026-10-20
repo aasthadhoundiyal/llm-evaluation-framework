@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation — LLM Evaluation Framework</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../dashboard/styles.css">
+  <style>
+    .docs-container {
+      max-width: 960px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .docs-container h2 {
+      font-size: 24px;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      color: #fff;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 8px;
+    }
+    .docs-container h3 {
+      font-size: 18px;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      color: #c7d2fe;
+    }
+    .docs-container p {
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+    .docs-container ul {
+      margin-left: 24px;
+      margin-bottom: 16px;
+      color: #94a3b8;
+    }
+    .docs-container li {
+      margin-bottom: 6px;
+    }
+    .code-block {
+      background: #090c12;
+      border: 1px solid var(--border-subtle);
+      padding: 16px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #38bdf8;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+    .callout-box {
+      background: rgba(99, 102, 241, 0.08);
+      border-left: 4px solid var(--accent-primary);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-branding">
+      <div class="brand-logo-icon">📖</div>
+      <div>
+        <h1 class="brand-title">LLM Evaluation Framework Docs</h1>
+        <p class="brand-sub">Comprehensive Guide & Testing Reference by Aastha Dhoundiyal</p>
+      </div>
+    </div>
+    <div class="header-meta">
+      <a href="../dashboard/index.html" class="btn-primary" style="padding: 6px 14px; text-decoration: none; font-size: 13px;">Open Dashboard</a>
+    </div>
+  </header>
+
+  <main class="docs-container">
+    <h2>1. Introduction & Philosophy</h2>
+    <p>
+      The <strong>LLM Evaluation Framework</strong> is a production-grade Python suite and pedagogical lab designed to test, benchmark, and evaluate non-deterministic GenAI applications, Retrieval-Augmented Generation (RAG) pipelines, and autonomous multi-turn agents.
+    </p>
+    <div class="callout-box">
+      <strong>Core Principle:</strong> In traditional software testing, pass/fail is deterministic and binary. In GenAI evaluation, we test for semantic adherence, hallucination probability, safety refusals, and trajectory efficiency.
+    </div>
+
+    <h2>2. Quickstart & Installation</h2>
+    <div class="code-block">
+# 1. Clone the repository
+git clone https://github.com/aasthadhoundiyal/llm-evaluation-framework.git
+cd llm-evaluation-framework
+
+# 2. Run all evaluation phases out-of-the-box (Zero setup, offline mock mode)
+python -m eval_framework.cli run-all --provider mock
+
+# 3. Launch the interactive Observatory Dashboard
+python -m eval_framework.cli serve --port 8080
+    </div>
+
+    <h2>3. The 6-Phase Evaluation Curriculum</h2>
+    <h3>Phase 0: Foundations & NLP Baselines</h3>
+    <p>Covers classical NLP token Exact Match (EM) and F1 scoring (SQuAD baseline) and examines why lexical equality fails on generative models. Introduces keyword containment and regex validation.</p>
+
+    <h3>Phase 1: Multi-Model Benchmarking</h3>
+    <p>Runs standardized prompts across multiple local (Ollama) and frontier cloud models, tracking latency, tokens, and pass rate matrices.</p>
+
+    <h3>Phase 2: Core Evaluation Techniques</h3>
+    <ul>
+      <li><strong>LLM-as-a-Judge:</strong> Structured rubric evaluation (Accuracy, Tone, Policy, Reasoning).</li>
+      <li><strong>Semantic Similarity:</strong> Cosine similarity, ROUGE-L, and BLEU-4 metrics.</li>
+      <li><strong>Groundedness:</strong> Claim extraction and hallucination auditing.</li>
+      <li><strong>Adversarial Injection:</strong> Prompt injection defense, system prompt leak resistance.</li>
+    </ul>
+
+    <h3>Phase 3: RAG Triad Pipeline Evaluation</h3>
+    <p>Calculates the 3 pillars of RAG: Context Relevance, Groundedness (Faithfulness), and Answer Relevance, plus temperature sensitivity sweeps.</p>
+
+    <h3>Phase 4: Industry Standards (Ragas & DeepEval)</h3>
+    <p>Provides zero-friction adapters showing how native evaluators map to Ragas and DeepEval standard metrics.</p>
+
+    <h3>Phase 5: Autonomous Agents & Tracing</h3>
+    <p>Simulates multi-tool agents, evaluates tool precision/recall, detects infinite reasoning loops, and exports OpenTelemetry/Langfuse traces.</p>
+
+    <h3>Phase 6: AI Safety & Adversarial Defense</h3>
+    <p>Detects sensitive PII leakage (SSN, Luhn credit cards, API secrets), evaluates prompt injection and DAN jailbreak resistance, and audits security compliance.</p>
+
+    <h2>4. Supported Model Providers</h2>
+    <ul>
+      <li><code>mock</code>: Built-in deterministic simulation for lightning-fast testing without API keys or local GPUs.</li>
+      <li><code>groq</code>: Ultra-low latency LPU inference (e.g. <code>llama-3.1-8b-instant</code>).</li>
+      <li><code>ollama</code>: Local open-source models (e.g. <code>llama3.1:8b</code>, <code>mistral:7b</code>, <code>deepseek-r1:7b</code>).</li>
+      <li><code>openai</code>: GPT-4o, GPT-4o-mini, etc.</li>
+      <li><code>gemini</code>: Google Gemini 1.5 Pro and Gemini 1.5 Flash.</li>
+      <li><code>anthropic</code>: Claude 3.5 Sonnet, Claude 3.5 Haiku.</li>
+    </ul>
+  </main>
+
+  <footer class="app-footer">
+    <p>LLM Evaluation Framework • Authored by <strong>Aastha Dhoundiyal</strong></p>
+  </footer>
+</body>
+</html>

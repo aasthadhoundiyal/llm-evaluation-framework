@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-evaluation-framework"
+version = "1.1.0"
+description = "A production-grade, extensible evaluation suite for LLMs, RAG pipelines, AI safety, and autonomous agents."
+readme = "README.md"
+authors = [
+  { name = "Aastha Dhoundiyal", email = "dhoundiyalaastha@gmail.com" }
+]
+requires-python = ">=3.10"
+keywords = [
+  "llm",
+  "evaluation",
+  "eval",
+  "rag",
+  "ai-agents",
+  "ai-safety",
+  "prompt-injection",
+  "pii-defense",
+  "groundedness",
+  "llm-as-a-judge",
+  "observability",
+  "genai-testing"
+]
+dependencies = [
+  "pyyaml>=6.0",
+  "requests>=2.31.0",
+  "openpyxl>=3.1.2"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4.0",
+  "pytest-mock>=3.11.1"
+]
+nlp = [
+  "rouge-score>=0.1.2",
+  "sacrebleu>=2.4.0",
+  "sentence-transformers>=2.2.2"
+]
+frameworks = [
+  "ragas>=0.1.0",
+  "deepeval>=0.21.0",
+  "langfuse>=2.0.0"
+]
+all = [
+  "pytest>=7.4.0",
+  "rouge-score>=0.1.2",
+  "sacrebleu>=2.4.0",
+  "sentence-transformers>=2.2.2",
+  "ragas>=0.1.0",
+  "deepeval>=0.21.0",
+  "langfuse>=2.0.0"
+]
+
+[project.scripts]
+llm-eval = "eval_framework.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["eval_framework*", "phases*"]
+
+[project.urls]
+Homepage = "https://github.com/aasthadhoundiyal/llm-evaluation-framework"
+Repository = "https://github.com/aasthadhoundiyal/llm-evaluation-framework.git"
+Issues = "https://github.com/aasthadhoundiyal/llm-evaluation-framework/issues"
